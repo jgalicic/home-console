@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
+import TimeAndDateDisplay from './apps/clock/TimeAndDateDisplay';
+
+
 
 function App() {
+
+
+  // Prevent Silk browser from reverting back to Echo Show homescreen
+  useEffect(() => {
+    const preventNavigation = (event) => {
+      event.preventDefault();
+      event.returnValue = '';
+    };
+
+    window.addEventListener('beforeunload', preventNavigation);
+
+    return () => {
+      window.removeEventListener('beforeunload', preventNavigation);
+    };
+  }, []);
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TimeAndDateDisplay />
     </div>
   );
 }

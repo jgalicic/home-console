@@ -1,0 +1,46 @@
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+
+.centerTimeAndDateDisplay {
+    height: 100vh;
+    width: 100vw; 
+    font-family: 'Rammetto One';
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Background */
+    background: linear-gradient(-45deg, 
+    #a82c2c,
+    #a82c2c,
+    #a8592c, 
+    #7da82c,
+    #2ca87b,
+    #3f2ca8,
+    #8d2ca8,
+    #8d2ca8
+    );
+    background-size: 500% 500%;
+    animation: gradient 50s linear infinite;
+}
+
+
+
+.clockAppDateDisplay {
+    font-size: 5vw;
+}
+
+.clockAppTimeDisplay {
+    font-size: 12vw;
+}
+
+.clockAppTimeDisplayAmPm {
+    display: inline;
+    font-size: 6vw;
+    margin-left: .9vw;
+}
